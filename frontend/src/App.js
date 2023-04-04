@@ -1,6 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
-import "./App.css";
+import './index.css';
+
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -13,10 +14,11 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import TimeBlockPage from "./pages/TimeBlockPage/TimeBlockPage";
 
 function App() {
   return (
-    <div>
+    <div className="flex">
       <Navbar />
       <Routes>
         <Route
@@ -24,6 +26,14 @@ function App() {
           element={
             <PrivateRoute>
               <HomePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/planner"
+          element={
+            <PrivateRoute>
+              <TimeBlockPage />
             </PrivateRoute>
           }
         />
