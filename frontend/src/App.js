@@ -18,7 +18,7 @@ import TimeBlockPage from "./pages/TimeBlockPage/TimeBlockPage";
 
 function App() {
   return (
-    <div className="flex">
+    <div >
       <Navbar />
       <Routes>
         <Route
