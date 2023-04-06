@@ -17,7 +17,7 @@ const HomePage = () => {
 
   
   return (
-    <div className="flex">
+    <div className="flex ">
       <h1>Home Page for {user.username}!</h1>
       <PageCreation />
     </div>
