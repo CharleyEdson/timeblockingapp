@@ -5,6 +5,6 @@ from authentication.models import User
 
 class Timeblock(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=240)
-    time = models.IntegerField()
-    is_active = models.BooleanField()
+    activity = models.CharField(max_length=240)
+    time_start = models.CharField(max_length=240)
+    time_end = models.CharField(max_length=240)
