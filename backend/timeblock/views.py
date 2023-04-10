@@ -14,7 +14,7 @@ from timeblock import serializers
 @permission_classes([IsAuthenticated])
 def activities_list(request):
     if request.method == 'GET':
-        activities = Timeblock.objects.filter(user_id=request.user.id).order_by('-time_start')
+        activities = Timeblock.objects.filter(user_id=request.user.id).order_by('time_start')
         serializer = TimeblockSerializer(activities, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
@@ -27,14 +27,14 @@ def activities_list(request):
 @api_view(['PUT', 'DELETE', 'PATCH'])
 @permission_classes([IsAuthenticated])
 def activities_edits(request,pk):
-    timeblock = get_object_or_404(timeblock,pk=pk)
+    timeblock = get_object_or_404(Timeblock,pk=pk)
     if request.method == 'PUT':
         serializer = TimeblockSerializer(timeblock, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
     elif request.method == 'PATCH':
-        serializer = TimeblockSerializer(asset, data=request.data, partial=True)
+        serializer = TimeblockSerializer(timeblock, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)

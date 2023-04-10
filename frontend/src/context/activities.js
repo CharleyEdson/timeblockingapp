@@ -17,6 +17,8 @@ function Provider({ children }) {
         },
       })
       .then((response) => {
+        console.log(response.data)
+        console.log('tester')
         setActivities(response.data);
       });
   }, []);
