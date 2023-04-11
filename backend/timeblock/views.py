@@ -14,7 +14,7 @@ from timeblock import serializers
 @permission_classes([IsAuthenticated])
 def activities_list(request):
     if request.method == 'GET':
-        activities = Timeblock.objects.filter(user_id=request.user.id).order_by('time_start')
+        activities = Timeblock.objects.filter(user_id=request.user.id).order_by('start_time')
         serializer = TimeblockSerializer(activities, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
