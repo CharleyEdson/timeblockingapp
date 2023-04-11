@@ -3,6 +3,7 @@ import ActivitiesContext from "../../context/activities";
 
 import React, { useState, useEffect, useContext } from 'react';
 import CreateActivity from "../../components/CreateActivity/CreateActivity";
+import TimeScale from "../../components/TimeScale/TimeScale";
 
 
 const TimeBlockPage = () => {
@@ -22,10 +23,11 @@ useEffect(() => {
   return (
     <div>
       <div className="flex justify-center">{fullDate}</div>
-      <div className="columns-2">
+        
         <CreateActivity />
+        <TimeScale />
         <TimeBlockCollection  />
-      </div>
+
     </div>
   );
 };
