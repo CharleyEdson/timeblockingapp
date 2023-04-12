@@ -3,6 +3,8 @@ import Activity from "../Activity/Activity";
 import ActivitiesContext from "../../context/activities";
 import {format} from 'date-fns'
 import {isValid} from 'date-fns'
+import TimeScale from "../TimeScale/TimeScale";
+
 
 const TimeBlockCollection = () => {
   const { activities } = useContext(ActivitiesContext);
@@ -11,6 +13,9 @@ const TimeBlockCollection = () => {
     return isValid(time) ? format(time, 'hh:mm a') : '';
   }
   
+// new code
+
+
 
 
   const renderedActivities = activities.map((activity) => {
@@ -25,6 +30,7 @@ const TimeBlockCollection = () => {
   });
   return (
     <div>
+        <TimeScale />
       <div>{renderedActivities}</div>
     </div>
   );
